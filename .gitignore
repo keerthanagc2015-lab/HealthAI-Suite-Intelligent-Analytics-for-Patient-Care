@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Model artifacts and datasets
+models/
+mlruns/
+mlflow.db
+data/raw/
+data/processed/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test and cache files
+.pytest_cache/
+test-results.xml
