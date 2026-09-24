@@ -1,71 +1,73 @@
-HealthAI — Intelligent Healthcare AI Platform
+# HealthAI — Intelligent Healthcare AI Platform
 
-An end-to-end healthcare AI portfolio platform integrating classical machine learning, deep learning, medical NLP, retrieval-augmented generation (RAG), agentic orchestration, multilingual patient interaction, FastAPI, Streamlit, and Docker.
+HealthAI is an end-to-end healthcare AI portfolio platform integrating classical machine learning, deep learning, medical NLP, retrieval-augmented generation (RAG), agentic orchestration, multilingual patient interaction, FastAPI, Streamlit, and Docker.
 
-Important: HealthAI is an educational/portfolio demonstration. It is not a medical device and is not intended for diagnosis, treatment decisions, or clinical decision-making.
+> **Important:** HealthAI is an educational and portfolio demonstration. It is not a medical device and is not intended for diagnosis, treatment decisions, or clinical decision-making.
 
-Overview
+---
 
-HealthAI brings multiple healthcare AI workflows into one modular application:
+## Overview
 
-Disease-risk / healthcare classification
+HealthAI brings multiple healthcare AI workflows together in one modular application.
 
-Hospital length-of-stay regression
+### Core capabilities
 
-Primary diagnosis prediction
+- Healthcare risk and classification workflows
+- Hospital length-of-stay prediction
+- Primary diagnosis prediction
+- Patient clustering
+- Association-rule mining
+- CNN-based chest X-ray analysis
+- RNN/LSTM patient deterioration workflow
+- Patient feedback sentiment analysis
+- Medical named-entity recognition (NER)
+- Evidence-grounded medical RAG
+- Agentic AI routing and tool execution
+- Multilingual patient interaction
+- English-to-Hindi neural machine translation
+- FastAPI REST services
+- Streamlit user interface
+- Docker-based deployment
 
-Patient clustering
+---
 
-Association-rule mining
+## Architecture
 
-CNN chest X-ray classification
-
-RNN/LSTM patient deterioration workflow
-
-Patient feedback sentiment analysis
-
-Medical named-entity recognition (NER)
-
-Evidence-grounded medical RAG
-
-Agentic routing and tool execution
-
-English, Hindi, and Tamil patient-facing interface
-
-English-to-Hindi neural machine translation
-
-Architecture
-
+```text
 User
-  │
-  ▼
+ │
+ ▼
 Streamlit UI
-  │
-  ▼
+ │
+ ▼
 FastAPI REST API
-  │
-  ▼
+ │
+ ▼
 Agent Router / Executor
-  │
-  ├── Classification tools
-  ├── Regression tools
-  ├── Clustering / Association tools
-  ├── CNN / RNN-LSTM tools
-  ├── Sentiment / NER tools
-  ├── Medical RAG
-  └── Translation
-          │
-          ▼
-   Models / Retrieved Evidence
-          │
-          ▼
-   Normalized API Response
-          │
-          ▼
-      Streamlit UI
+ │
+ ├── Classification tools
+ ├── Regression tools
+ ├── Clustering / Association tools
+ ├── CNN / RNN-LSTM tools
+ ├── Sentiment / NER tools
+ ├── Medical RAG
+ └── Translation
+ │
+ ▼
+Models / Retrieved Evidence
+ │
+ ▼
+Normalized API Response
+ │
+ ▼
+Streamlit UI
+```
 
-Project Structure
+---
 
+## Project Structure
+
+```text
 HealthAI-Suite-Intelligent-Analytics-for-Patient-Care/
 │
 ├── deployment/
@@ -75,6 +77,7 @@ HealthAI-Suite-Intelligent-Analytics-for-Patient-Care/
 │
 ├── docs/
 │   └── classification/
+│       └── classification_results.md
 │
 ├── notebooks/
 │   └── 01_Exploratory_Data_Analysis.ipynb
@@ -89,6 +92,7 @@ HealthAI-Suite-Intelligent-Analytics-for-Patient-Care/
 │   ├── 07_baseline_model_training.py
 │   ├── 08_linear_svc_experiment.py
 │   ├── 09_advanced_feature_engineering.py
+│   │
 │   ├── 10_advanced_model_training/
 │   ├── 11_hyperparameter_tuning/
 │   ├── 12_feature_importance/
@@ -106,331 +110,805 @@ HealthAI-Suite-Intelligent-Analytics-for-Patient-Care/
 ├── .dockerignore
 ├── .gitignore
 └── README.md
+```
 
-AI / ML Modules
+---
 
-Module
+# AI / ML Modules
 
-Main approach
+| Module | Approach | Purpose |
+|---|---|---|
+| Healthcare Classification | Classical Machine Learning | Structured healthcare risk and category prediction |
+| Hospital Length of Stay | Regression / XGBoost | Predict hospital stay duration |
+| Primary Diagnosis | Classification | Predict configured diagnosis categories |
+| Patient Clustering | Unsupervised Learning | Segment patient records into data-driven groups |
+| Association Mining | Apriori / Association Rules | Identify recurring feature relationships |
+| Chest X-ray | CNN | Normal / pneumonia image classification |
+| Patient Deterioration | RNN / LSTM | Model sequential deterioration patterns |
+| Sentiment Analysis | Transformer / DistilBERT workflow | Classify patient feedback sentiment |
+| Medical NER | BioBERT / ClinicalBERT workflow | Extract medical entities from text |
+| Medical RAG | Retrieval + Embeddings | Ground medical-information responses in curated sources |
+| Agentic AI | Router + Executor + Adapters | Route requests to specialized healthcare tools |
+| Medical Translation | Helsinki-NLP NMT | English-to-Hindi translation |
 
-Purpose
+---
 
-Healthcare classification
+# Technology Stack
 
-Classical ML
+### Programming
 
-Structured healthcare risk / category prediction
+- Python
+- SQL
+- Pandas
+- NumPy
 
-Length of stay
+### Machine Learning
 
-Regression / XGBoost
+- Scikit-learn
+- XGBoost
+- Feature engineering
+- Feature selection
+- Hyperparameter tuning
+- Classification
+- Regression
+- Clustering
+- Association-rule mining
 
-Predict hospital stay duration
+### Deep Learning
 
-Primary diagnosis
+- TensorFlow
+- Keras
+- PyTorch
+- CNN
+- RNN
+- LSTM
 
-Classification
+### NLP
 
-Predict configured diagnosis categories
+- Transformers
+- BioBERT
+- ClinicalBERT
+- DistilBERT
+- Sentence Transformers
+- Medical NER
+- Sentiment analysis
+- Neural machine translation
 
-Patient clustering
+### AI / Architecture
 
-Unsupervised learning
+- Agentic AI
+- Tool routing
+- Model adapters
+- Retrieval-Augmented Generation
+- Semantic retrieval
+- Question-aware reranking
+- Response normalization
 
-Segment patient records into data-driven groups
+### Application
 
-Association mining
+- FastAPI
+- Uvicorn
+- Streamlit
+- Docker
+- Docker Compose
 
-Apriori / association rules
+---
 
-Discover recurring feature relationships
+# Data Sources & Dataset References
 
-Chest X-ray
+The following external datasets were used for different HealthAI workflows.
 
-CNN
+## Indian Healthcare Patient Records
 
-Normal / pneumonia image classification
+**Use:** Primary tabular healthcare modelling, classification and structured-data workflows.
 
-Deterioration
+**Source:** Kaggle — Arun's Workspace
 
-RNN / LSTM
+https://www.kaggle.com/datasets/arunsworkspace/indian-healthcare-patient-records
 
-Sequential patient deterioration modelling
+The dataset contains 100,000 healthcare records used in the project's structured-data workflows.
 
-Sentiment
+---
 
-Transformer / DistilBERT workflow
+## LengthOfStay.csv
 
-Classify patient feedback sentiment
+**Use:** Hospital length-of-stay regression and ANN/MLP workflows.
 
-Medical NER
+**Source:** Microsoft R Server — Hospital Length of Stay
 
-BioBERT / ClinicalBERT workflow
+https://microsoft.github.io/r-server-hospital-length-of-stay/
 
-Extract medical entities from text
+**License:** MIT
 
-Medical RAG
+The Microsoft project describes the data as synthetic records modelled after real-world hospital inpatient records.
 
-Retrieval + embeddings
+---
 
-Ground medical-information responses in curated sources
+## Patient Feedback and Sentiment Analysis Dataset
 
-Agentic AI
+**Use:** Patient feedback, sentiment, satisfaction and healthcare service-quality analysis.
 
-Router + executor + adapters
+**Source:** Kaggle — Patient Feedback and Sentiment Analysis Dataset
 
-Route user requests to specialized healthcare tools
+https://www.kaggle.com/datasets/sanak2000/cleveland-clinic-patients-feedback
 
-Translation
+**License:** MIT
 
-Helsinki-NLP NMT
+**Local file:**
 
-English-to-Hindi translation
+```text
+data/raw/medical_sentiment/patient_feedback_dataset.xlsx
+```
 
-Data Provenance & Dataset Download Sources
+The dataset used in the project contains 1,000 rows and 5 columns.
 
-The following records list the external datasets used by the project and their source websites.
+---
 
-Indian Healthcare Patient Records
+## Healthcare_DataSet.csv
 
-Use: Main tabular healthcare modelling, classification, clustering and association workflows
-Source: Kaggle — Arun's Workspace
+**Use:** Medical-text and sentiment exploration.
 
-LengthOfStay.csv
+**Local file:**
 
-Use: Hospital length-of-stay regression and ANN/MLP workflows
-Source: Microsoft R Server — Hospital Length of Stay
-License: MIT
+```text
+data/raw/medical_sentiment/Healthcare_DataSet.csv
+```
 
-Patient Feedback and Sentiment Analysis Dataset
+**Records:** 87,057
 
-Use: Patient feedback, sentiment and satisfaction analysis
-Source: Kaggle — Patient Feedback and Sentiment Analysis Dataset
-License: MIT
-Local file: data/raw/medical_sentiment/patient_feedback_dataset.xlsx
+---
 
-Healthcare_DataSet.csv
+## Hospital Deterioration — Simulated Early Warning
 
-Use: Medical-text / sentiment exploration
-Local file: data/raw/medical_sentiment/Healthcare_DataSet.csv
-Records: 87,057
+**Use:** RNN/LSTM patient deterioration workflow.
 
-Hospital Deterioration — Simulated Early Warning
+**Source:** Hugging Face — `tarekmasryo/hospital-deterioration-dataset`
 
-Use: RNN/LSTM patient deterioration workflow
-Source: Hugging Face — tarekmasryo/hospital-deterioration-dataset
-License: CC BY 4.0
+https://huggingface.co/datasets/tarekmasryo/hospital-deterioration-dataset
 
-Synthetic Chest X-Ray Pneumonia Dataset
+**License:** CC BY 4.0
 
-Use: CNN normal/pneumonia image classification
-Source: Hugging Face — chimbiwide/synthetic-chest-xray-pneumonia
-License: CC BY 4.0
+The dataset is described as simulated healthcare data.
 
-Multilingual Synthetic Medical Notes for NER
+---
 
-Use: Medical named-entity recognition
-Source: Hugging Face — E3-JSI/synthetic-multi-med-notes-ner-v1
-License: MIT
+## Synthetic Chest X-Ray Pneumonia Dataset
 
-Dataset status in Git
+**Use:** CNN normal/pneumonia image classification.
 
-The external datasets and generated data are excluded from the Git repository. The project .gitignore excludes:
+**Source:** Hugging Face — `chimbiwide/synthetic-chest-xray-pneumonia`
 
+https://huggingface.co/datasets/chimbiwide/synthetic-chest-xray-pneumonia
+
+**License:** CC BY 4.0
+
+The project presents this dataset as synthetic and uses it for portfolio model development.
+
+---
+
+## Multilingual Synthetic Medical Notes for NER
+
+**Use:** Medical named-entity recognition.
+
+**Source:** Hugging Face — `E3-JSI/synthetic-multi-med-notes-ner-v1`
+
+https://huggingface.co/datasets/E3-JSI/synthetic-multi-med-notes-ner-v1
+
+**License:** MIT
+
+The dataset is synthetic clinical-style text used for medical NER experimentation.
+
+---
+
+# Dataset Storage
+
+Large datasets and generated artifacts are intentionally excluded from the Git repository.
+
+The project excludes:
+
+```text
 models/
 mlruns/
 data/raw/
 data/processed/
+```
 
-This keeps the downloaded source data outside Git history. Re-download or restore the datasets from their documented source websites when reproducing the project.
+This keeps large datasets and generated machine-learning artifacts outside Git history.
 
-Pretrained Model Sources
+The datasets should be obtained from their respective source websites when reproducing the project.
 
-BioBERT v1.1
+---
 
-Use: Biomedical NER
-Source: Hugging Face — dmis-lab/biobert-v1.1
+# Pretrained Models & References
 
-Bio_ClinicalBERT
+## BioBERT v1.1
 
-Use: Clinical NLP / NER
-Source: Hugging Face — emilyalsentzer/Bio_ClinicalBERT
-License: MIT
+**Use:** Biomedical named-entity recognition.
 
-DistilBERT base uncased
+**Source:**
 
-Use: Sentiment transformer workflow
-Source: Hugging Face — distilbert/distilbert-base-uncased
-License: Apache-2.0
+https://huggingface.co/dmis-lab/biobert-v1.1
 
-all-MiniLM-L6-v2
+---
 
-Use: RAG embeddings
-Source: Hugging Face — sentence-transformers/all-MiniLM-L6-v2
-License: Apache-2.0
+## Bio_ClinicalBERT
 
-Helsinki-NLP/opus-mt-en-hi
+**Use:** Clinical NLP and medical NER.
 
-Use: English-to-Hindi translation
-Source: Hugging Face — Helsinki-NLP/opus-mt-en-hi
-License: Apache-2.0
+**Source:**
 
-Medical RAG Sources
+https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT
 
-The RAG source registry contains eight curated public medical-information sources. The exact URLs are retained in the project source registry.
+**License:** MIT
 
-Organization
+---
 
-Topic
+## DistilBERT Base Uncased
 
-Source website
+**Use:** Sentiment transformer workflow.
 
-World Health Organization
+**Source:**
 
-Diabetes
+https://huggingface.co/distilbert/distilbert-base-uncased
 
-https://www.who.int/health-topics/diabetes
+**License:** Apache-2.0
 
-WHO India
+---
 
-Diabetes
+## all-MiniLM-L6-v2
 
-https://www.who.int/india/health-topics/diabetes
+**Use:** Sentence embeddings for the medical RAG workflow.
 
-World Health Organization
+**Source:**
 
-Hypertension
+https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
 
-https://www.who.int/health-topics/hypertension/
+**License:** Apache-2.0
 
-WHO India
+---
 
-Hypertension
+## Helsinki-NLP/opus-mt-en-hi
 
-https://www.who.int/india/health-topics/hypertension
+**Use:** English-to-Hindi neural machine translation.
 
-World Health Organization
+**Source:**
 
-Noncommunicable Diseases
+https://huggingface.co/Helsinki-NLP/opus-mt-en-hi
 
-https://www.who.int/news-room/fact-sheets/detail/noncommunicable-diseases
+**License:** Apache-2.0
 
-MedlinePlus / U.S. National Library of Medicine
+This is a pretrained neural machine-translation model and is not presented as a general-purpose LLM.
 
-General Health
+---
 
-https://medlineplus.gov/healthtopics.html
+# Medical RAG
 
-MedlinePlus / U.S. National Library of Medicine
+The HealthAI medical-information assistant uses a retrieval-augmented generation architecture based on curated medical sources.
 
-Type 2 Diabetes Self-Care
+## RAG workflow
 
-https://medlineplus.gov/ency/patientinstructions/000328.htm
+```text
+User Question
+      │
+      ▼
+Question Embedding
+      │
+      ▼
+Similarity Retrieval
+      │
+      ▼
+Question-Aware Reranking
+      │
+      ▼
+Safety Threshold
+      │
+      ├── Insufficient Evidence
+      │        ↓
+      │    Abstention
+      │
+      └── Sufficient Evidence
+               ↓
+        Grounded Response
+               ↓
+          Source Display
+```
 
-MedlinePlus / U.S. National Library of Medicine
+The current RAG knowledge base contains:
 
-Living With Chronic Illness
+- 55 vectors
+- 384-dimensional embeddings
+- 8 curated medical sources
 
-https://medlineplus.gov/ency/patientinstructions/000602.htm
+The project uses retrieval evidence and a safety threshold before constructing a medical-information response.
 
-These are knowledge sources, not datasets owned by this project. Their individual terms and copyright conditions continue to apply.
+---
 
-Translation
+# RAG Source Websites
 
-The medical translation worker uses:
+The project uses curated public medical-information sources from the following websites.
 
-Helsinki-NLP/opus-mt-en-hi
+| Organization | Topic | Source |
+|---|---|---|
+| World Health Organization | Diabetes | https://www.who.int/health-topics/diabetes |
+| WHO India | Diabetes | https://www.who.int/india/health-topics/diabetes |
+| World Health Organization | Hypertension | https://www.who.int/health-topics/hypertension/ |
+| WHO India | Hypertension | https://www.who.int/india/health-topics/hypertension |
+| World Health Organization | Noncommunicable Diseases | https://www.who.int/news-room/fact-sheets/detail/noncommunicable-diseases |
+| MedlinePlus / U.S. National Library of Medicine | Health Topics | https://medlineplus.gov/healthtopics.html |
+| MedlinePlus / U.S. National Library of Medicine | Type 2 Diabetes Self-Care | https://medlineplus.gov/ency/patientinstructions/000328.htm |
+| MedlinePlus / U.S. National Library of Medicine | Living With Chronic Illness | https://medlineplus.gov/ency/patientinstructions/000602.htm |
 
-This is a pretrained neural machine-translation model for English-to-Hindi translation. It is not presented as a general-purpose LLM.
+The RAG system retains the source URLs used by the project source registry.
 
-X-Ray Safety / Intended Use
+---
 
-The chest X-ray module is explicitly positioned as a portfolio demonstration using a synthetic dataset. It is not intended for clinical diagnosis or medical decision-making.
+# Agentic AI
 
-Docker Deployment
+The agentic layer uses a modular router and executor architecture.
 
-The project includes a Docker deployment under deployment/.
+```text
+User Query
+    │
+    ▼
+Agent Router
+    │
+    ▼
+Selected Healthcare Tool
+    │
+    ▼
+Model / RAG Adapter
+    │
+    ▼
+Structured Result
+    │
+    ▼
+FastAPI
+    │
+    ▼
+Streamlit
+```
 
-Start the application
+The agent layer can route requests to specialized healthcare tools instead of sending every request through a single generic model.
 
-docker compose -f .\deployment\docker-compose.yml up --build
+---
 
-Application URLs
+# Model Adapter Architecture
 
-Streamlit: http://localhost:8501
-FastAPI:   http://localhost:8000
+HealthAI separates model-specific implementation from the application interface.
 
-The deployment expects large datasets and model artifacts to be available locally because data/ and models/ are excluded from the Docker build context and mounted at runtime by the Compose configuration.
+```text
+Streamlit
+    │
+    ▼
+FastAPI
+    │
+    ▼
+Agent Router
+    │
+    ▼
+Tool / Adapter
+    │
+    ├── Preprocessing
+    ├── Model Inference
+    ├── Output Normalization
+    └── Metadata
+```
 
-API
+This architecture allows the individual model components to evolve independently of the presentation layer.
 
-FastAPI provides the service layer between the Streamlit interface and the healthcare AI tools.
+---
 
-Representative endpoints include:
+# FastAPI
 
+FastAPI provides the REST service layer between the Streamlit interface and the healthcare AI components.
+
+Representative API endpoints include:
+
+```text
 GET  /
 GET  /health
 POST /predict/diabetes
 POST /predict/xray
 POST /predict/los
 POST /predict/diagnosis
+```
 
-API responses are normalized so the presentation layer does not need to depend on every model's internal output structure.
+The API layer provides structured response contracts so that the Streamlit application does not depend directly on model-specific output formats.
 
-Testing / CI
+---
 
-The repository contains API tests under test/test_api.py and a GitHub Actions workflow under .github/workflows/ci.yml.
+# Streamlit
 
-The CI workflow runs the API tests in a clean Python environment and installs the required test dependencies, including python-multipart for FastAPI file/form endpoints.
+Streamlit provides the user-facing application.
 
-Reproducibility Notes
+The application includes patient-facing and analytics-oriented workflows such as:
 
-Keep the externally downloaded datasets in the locations expected by the project code.
+- Dashboard
+- Health Risk
+- HealthAI Assistant
+- Appointments
+- Hospital Services
+- Hospital length-of-stay prediction
+- Chest X-ray analysis
+- Primary diagnosis prediction
+- Patient sentiment analysis
+- Medical NER
+- Patient clustering
+- Association analysis
+- Medical RAG
+- Multilingual patient interaction
 
-Keep model artifacts outside Git and restore/download them from their documented sources.
+The Patient Portal supports English, Hindi and Tamil interface experiences.
 
-Use the same source dataset/version when reproducing model-training experiments.
+---
 
-Do not commit secrets, .env files, virtual environments, model artifacts, MLflow runs, or large raw datasets.
+# Medical Translation
 
-Attribution & References
+The medical translation workflow uses:
 
-Core dataset references
+```text
+Helsinki-NLP/opus-mt-en-hi
+```
 
-Indian Healthcare Patient Records: https://www.kaggle.com/datasets/arunsworkspace/indian-healthcare-patient-records
+for English-to-Hindi neural machine translation.
 
-Length of Stay data: https://microsoft.github.io/r-server-hospital-length-of-stay/
+The application also contains patient-facing interface translations for English, Hindi and Tamil.
 
-Patient Feedback and Sentiment Analysis Dataset: https://www.kaggle.com/datasets/sanak2000/cleveland-clinic-patients-feedback
+Machine translation is intended for information support and should not replace professional medical interpretation.
 
-Hospital Deterioration dataset: https://huggingface.co/datasets/tarekmasryo/hospital-deterioration-dataset
+---
 
-Synthetic Chest X-Ray Pneumonia dataset: https://huggingface.co/datasets/chimbiwide/synthetic-chest-xray-pneumonia
+# Chest X-Ray Module
 
-Multilingual Synthetic Medical Notes for NER: https://huggingface.co/datasets/E3-JSI/synthetic-multi-med-notes-ner-v1
+The chest X-ray workflow uses a CNN-based image classification model.
 
-Model references
+The application preprocesses uploaded X-ray images before inference and returns a normalized prediction response.
 
-BioBERT: https://huggingface.co/dmis-lab/biobert-v1.1
+The project presents the X-ray feature as a portfolio demonstration based on a synthetic dataset.
 
-Bio_ClinicalBERT: https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT
+> **Safety:** The X-ray feature is not intended for clinical diagnosis or medical decision-making.
 
-DistilBERT: https://huggingface.co/distilbert/distilbert-base-uncased
+---
 
-all-MiniLM-L6-v2: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+# Patient Deterioration
 
-Helsinki-NLP English-to-Hindi NMT: https://huggingface.co/Helsinki-NLP/opus-mt-en-hi
+The deterioration workflow uses RNN/LSTM-based sequential modelling.
 
-RAG source references
+The workflow is designed to analyse longitudinal or time-series patient signals and model deterioration-related patterns.
 
-The exact WHO and MedlinePlus URLs used by the RAG source registry are listed above in Medical RAG Sources.
+The associated dataset is the simulated Hospital Deterioration dataset documented above.
 
-Limitations
+---
 
-The project uses public and/or synthetic resources rather than private hospital records.
+# Sentiment Analysis
 
-Model outputs are portfolio demonstrations and are not clinically validated.
+The patient-feedback workflow analyses healthcare feedback using transformer-based NLP.
 
-Dataset quality, representativeness, licensing, and external-source terms remain specific to each original source.
+The workflow includes:
 
-External datasets and model artifacts are intentionally excluded from the Git repository.
+- Patient feedback inspection
+- Sentiment classification
+- Satisfaction analysis
+- Feedback preprocessing
+- Transformer-based modelling
+- Error analysis
+
+The project also documents the number of unique feedback texts and the dataset characteristics observed during exploratory analysis.
+
+---
+
+# Medical NER
+
+The Medical NER workflow uses biomedical and clinical transformer resources.
+
+The system includes:
+
+- BioBERT
+- Bio_ClinicalBERT
+- Synthetic medical notes
+- Medical entity extraction
+- Entity confidence handling
+- Adapter-based inference
+
+---
+
+# Evaluation
+
+The project uses model-specific evaluation approaches.
+
+### Classification
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- ROC-AUC where applicable
+
+### Regression
+
+- MAE
+- RMSE
+- R²
+
+### Clustering
+
+- Cluster profiles
+- Cluster interpretability
+- Unsupervised evaluation measures where applicable
+
+### Association Rules
+
+- Support
+- Confidence
+- Lift
+
+### Deep Learning
+
+Model-specific evaluation and prediction workflows are included for CNN, RNN and LSTM components.
+
+### RAG
+
+RAG evaluation focuses on:
+
+- Retrieval quality
+- Evidence grounding
+- Source usage
+- Safety threshold behaviour
+- Abstention when sufficient evidence is not available
+
+---
+
+# Docker Deployment
+
+HealthAI includes a Docker deployment configuration under:
+
+```text
+deployment/
+```
+
+## Docker components
+
+```text
+deployment/
+├── Dockerfile
+├── docker-compose.yml
+└── requirements-runtime.txt
+```
+
+The project uses a shared application image for the FastAPI and Streamlit services.
+
+Large local `data/` and `models/` directories are mounted at runtime rather than copied into the Docker image.
+
+---
+
+# Run with Docker
+
+From the project root:
+
+```powershell
+docker compose -f .\deployment\docker-compose.yml up --build
+```
+
+## Application URLs
+
+### Streamlit
+
+```text
+http://localhost:8501
+```
+
+### FastAPI
+
+```text
+http://localhost:8000
+```
+
+---
+
+# Run Locally Without Docker
+
+Create and activate a Python virtual environment, install the required dependencies, and run the Streamlit application.
+
+```powershell
+streamlit run .\src\19_streamlit\01_healthai_virtual_hospital.py
+```
+
+For the API service:
+
+```powershell
+uvicorn 01_fastapi_app:app --app-dir .\src\18_api --host 0.0.0.0 --port 8000
+```
+
+---
+
+# Testing
+
+API tests are located under:
+
+```text
+test/test_api.py
+```
+
+The current test suite covers:
+
+```text
+GET  /
+GET  /health
+POST /predict/diabetes with invalid input
+```
+
+---
+
+# Continuous Integration
+
+GitHub Actions configuration is located at:
+
+```text
+.github/workflows/ci.yml
+```
+
+The workflow is configured to install the API test dependencies and execute the FastAPI test suite in a clean GitHub Actions environment.
+
+---
+
+# Data Governance & Third-Party Resources
+
+HealthAI uses external datasets, pretrained models and public medical-information sources.
+
+Third-party resources remain subject to the terms and licenses provided by their respective original sources.
+
+The datasets and trained model artifacts are intentionally kept outside the Git repository when they are large or externally hosted.
+
+The repository contains the application code, configuration, documentation and reproducible project structure.
+
+---
+
+# Reproducibility
+
+To reproduce the project:
+
+1. Clone the repository.
+2. Install the required Python dependencies.
+3. Obtain the external datasets from their documented source websites.
+4. Restore the required model artifacts.
+5. Place the datasets and model artifacts in the expected local directories.
+6. Run the FastAPI and Streamlit services.
+7. Use the documented source versions and model versions when reproducing experiments.
+
+---
+
+# Project Safety & Intended Use
+
+HealthAI is a portfolio and educational system.
+
+It should not be used as a substitute for:
+
+- Professional medical diagnosis
+- Clinical treatment decisions
+- Emergency medical services
+- Medical interpretation by qualified professionals
+
+Synthetic datasets and demonstration models may not reflect the complexity or variability of real-world clinical environments.
+
+---
+
+# Key Engineering Design Decisions
+
+## Modular adapters
+
+Model-specific preprocessing, inference and output normalization are separated from the UI.
+
+## Stable API contracts
+
+FastAPI provides structured responses between the AI components and Streamlit.
+
+## Agentic routing
+
+Natural-language requests can be routed to specialized healthcare tools.
+
+## Evidence-grounded RAG
+
+Medical-information responses are constructed from retrieved evidence rather than unrestricted generation.
+
+## Safety-aware retrieval
+
+The RAG pipeline uses retrieval quality and a semantic safety threshold before constructing an answer.
+
+## Abstention
+
+The system can abstain when the available retrieval evidence is insufficient.
+
+## Multilingual patient interface
+
+Patient-facing interaction supports English, Hindi and Tamil interface experiences.
+
+## Containerized deployment
+
+Docker packages the application environment and separates large runtime data/model mounts from the application image.
+
+---
+
+# Repository Information
+
+**Repository:**
+
+`HealthAI-Suite-Intelligent-Analytics-for-Patient-Care`
+
+**Primary branch:**
+
+`main`
+
+The repository contains the source code, deployment configuration, documentation and notebooks required to understand the HealthAI implementation.
+
+---
+
+# Attribution
+
+### Dataset sources
+
+**Indian Healthcare Patient Records**  
+Kaggle — Arun's Workspace  
+https://www.kaggle.com/datasets/arunsworkspace/indian-healthcare-patient-records
+
+**LengthOfStay.csv**  
+Microsoft R Server — Hospital Length of Stay  
+https://microsoft.github.io/r-server-hospital-length-of-stay/
+
+**Patient Feedback and Sentiment Analysis Dataset**  
+Kaggle — SANAK.2000  
+https://www.kaggle.com/datasets/sanak2000/cleveland-clinic-patients-feedback
+
+**Hospital Deterioration — Simulated Early Warning**  
+Hugging Face — tarekmasryo  
+https://huggingface.co/datasets/tarekmasryo/hospital-deterioration-dataset
+
+**Synthetic Chest X-Ray Pneumonia Dataset**  
+Hugging Face — chimbiwide  
+https://huggingface.co/datasets/chimbiwide/synthetic-chest-xray-pneumonia
+
+**Multilingual Synthetic Medical Notes for NER**  
+Hugging Face — E3-JSI  
+https://huggingface.co/datasets/E3-JSI/synthetic-multi-med-notes-ner-v1
+
+### Model sources
+
+**BioBERT v1.1**  
+https://huggingface.co/dmis-lab/biobert-v1.1
+
+**Bio_ClinicalBERT**  
+https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT
+
+**DistilBERT base uncased**  
+https://huggingface.co/distilbert/distilbert-base-uncased
+
+**all-MiniLM-L6-v2**  
+https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+
+**Helsinki-NLP/opus-mt-en-hi**  
+https://huggingface.co/Helsinki-NLP/opus-mt-en-hi
+
+---
+
+# Final Note
+
+HealthAI is designed as an end-to-end healthcare AI engineering portfolio demonstrating the integration of:
+
+```text
+Machine Learning
+      +
+Deep Learning
+      +
+Medical NLP
+      +
+RAG
+      +
+Agentic AI
+      +
+FastAPI
+      +
+Streamlit
+      +
+Docker
+```
+
+The project emphasizes modular architecture, data provenance, third-party attribution, evidence-grounded medical information, API contracts and explicit safety boundaries.
