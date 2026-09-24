@@ -1,0 +1,48 @@
+services:
+
+  fastapi:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+
+    image: healthai-app:latest
+
+    environment:
+      TF_ENABLE_ONEDNN_OPTS: "0"
+      OMP_NUM_THREADS: "1"
+      TF_NUM_INTRAOP_THREADS: "1"
+      TF_NUM_INTEROP_THREADS: "1"
+
+    command: >
+      sh -c "pip install --no-cache-dir python-multipart &&
+      uvicorn 01_fastapi_app:app
+      --app-dir /app/src/18_api
+      --host 0.0.0.0
+      --port 8000"
+
+    ports:
+      - "8000:8000"
+      - "8501:8501"
+
+    volumes:
+      - ../data:/app/data:ro
+      - ../models:/app/models:ro
+
+    restart: unless-stopped
+
+
+  streamlit:
+    image: healthai-app:latest
+
+    command: >
+      streamlit run
+      /app/src/19_streamlit/01_healthai_virtual_hospital.py
+      --server.address=0.0.0.0
+      --server.port=8501
+
+    network_mode: "service:fastapi"
+
+    depends_on:
+      - fastapi
+
+    restart: unless-stopped

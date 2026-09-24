@@ -1,0 +1,310 @@
+"""
+HealthAI - Association Analysis Agent Adapter
+
+Connects Module 15 associative-learning results
+to the Agentic AI layer.
+
+This adapter uses the already-generated meaningful
+association rules. It does not retrain Apriori.
+"""
+
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+import pandas as pd
+
+
+# ============================================================
+# PROJECT PATHS
+# ============================================================
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+ASSOCIATIVE_DIR = (
+    PROJECT_ROOT
+    / "data"
+    / "processed"
+    / "associative_learning"
+)
+
+MEANINGFUL_RULES_PATH = (
+    ASSOCIATIVE_DIR
+    / "meaningful_association_rules.csv"
+)
+
+ALL_RULES_PATH = (
+    ASSOCIATIVE_DIR
+    / "association_rules.csv"
+)
+
+
+# ============================================================
+# LOAD RULES
+# ============================================================
+
+def load_association_rules() -> tuple[pd.DataFrame, Path]:
+    """
+    Load the filtered meaningful association rules.
+
+    Falls back to the complete association_rules.csv only
+    if the meaningful-rule file is unavailable or empty.
+    """
+
+    if (
+        MEANINGFUL_RULES_PATH.exists()
+        and MEANINGFUL_RULES_PATH.stat().st_size > 0
+    ):
+        df = pd.read_csv(MEANINGFUL_RULES_PATH)
+
+        if not df.empty:
+            return df, MEANINGFUL_RULES_PATH
+
+    if ALL_RULES_PATH.exists():
+        df = pd.read_csv(ALL_RULES_PATH)
+
+        if not df.empty:
+            return df, ALL_RULES_PATH
+
+    raise FileNotFoundError(
+        "No non-empty association rule output was found."
+    )
+
+
+# ============================================================
+# NORMALIZE VALUES
+# ============================================================
+
+def normalize_value(value: Any) -> Any:
+
+    if pd.isna(value):
+        return None
+
+    if isinstance(value, float):
+        return round(value, 6)
+
+    return str(value)
+
+
+# ============================================================
+# BUILD RULE SUMMARY
+# ============================================================
+
+def build_rule_summary(
+    df: pd.DataFrame,
+    max_rules: int = 10,
+) -> list[dict[str, Any]]:
+    """
+    Return the strongest association rules,
+    ranked by lift.
+    """
+
+    columns = {
+        str(column).strip().lower(): column
+        for column in df.columns
+    }
+
+    antecedent_column = columns.get("antecedents")
+    consequent_column = columns.get("consequents")
+    support_column = columns.get("support")
+    confidence_column = columns.get("confidence")
+    lift_column = columns.get("lift")
+
+    working_df = df.copy()
+
+    if lift_column is not None:
+        working_df = working_df.sort_values(
+            by=lift_column,
+            ascending=False,
+        )
+
+    working_df = working_df.head(max_rules)
+
+    results: list[dict[str, Any]] = []
+
+    for _, row in working_df.iterrows():
+
+        rule = {
+            "rule_number": len(results) + 1,
+            "antecedents": (
+                normalize_value(row[antecedent_column])
+                if antecedent_column is not None
+                else None
+            ),
+            "consequents": (
+                normalize_value(row[consequent_column])
+                if consequent_column is not None
+                else None
+            ),
+            "support": (
+                normalize_value(row[support_column])
+                if support_column is not None
+                else None
+            ),
+            "confidence": (
+                normalize_value(row[confidence_column])
+                if confidence_column is not None
+                else None
+            ),
+            "lift": (
+                normalize_value(row[lift_column])
+                if lift_column is not None
+                else None
+            ),
+        }
+
+        results.append(rule)
+
+    return results
+
+
+# ============================================================
+# AGENT EXECUTION FUNCTION
+# ============================================================
+
+def execute_association_analysis(
+    query: str = "",
+    **kwargs: Any,
+) -> dict[str, Any]:
+
+    try:
+
+        df, source_path = load_association_rules()
+
+        top_rules = build_rule_summary(
+            df,
+            max_rules=10,
+        )
+
+        return {
+            "status": "success",
+            "tool": "association_analysis",
+            "prediction_type": "association_analysis",
+            "query": query,
+            "analysis_type": (
+                "Association rule mining / Apriori"
+            ),
+            "total_rules": int(len(df)),
+            "rules_returned": int(len(top_rules)),
+            "top_rules": top_rules,
+            "source": str(
+                source_path.relative_to(PROJECT_ROOT)
+            ),
+            "model_status": (
+                "Precomputed association rules"
+            ),
+            "note": (
+                "Rules were generated by Module 15 "
+                "associative learning. The agent does "
+                "not retrain Apriori."
+            ),
+        }
+
+    except Exception as exc:
+
+        return {
+            "status": "error",
+            "tool": "association_analysis",
+            "prediction_type": "association_analysis",
+            "query": query,
+            "message": (
+                "Association analysis execution failed."
+            ),
+            "error": str(exc),
+        }
+
+
+# ============================================================
+# STANDALONE TEST
+# ============================================================
+
+def main() -> None:
+
+    print("=" * 70)
+    print("HEALTHAI - ASSOCIATION ANALYSIS AGENT ADAPTER")
+    print("=" * 70)
+
+    print("\nChecking Module 15 rule outputs...")
+
+    print(
+        "Meaningful rules:",
+        "AVAILABLE"
+        if MEANINGFUL_RULES_PATH.exists()
+        else "MISSING",
+    )
+
+    print(
+        "All association rules:",
+        "AVAILABLE"
+        if ALL_RULES_PATH.exists()
+        else "MISSING",
+    )
+
+    print("\nRunning adapter test...")
+
+    result = execute_association_analysis(
+        query=(
+            "Show me the strongest "
+            "clinical association rules."
+        )
+    )
+
+    print("\nAdapter status:")
+    print(result.get("status"))
+
+    if result.get("status") == "success":
+
+        print(
+            "\nAnalysis type:",
+            result["analysis_type"],
+        )
+
+        print(
+            "Total rules:",
+            result["total_rules"],
+        )
+
+        print(
+            "Rules returned:",
+            result["rules_returned"],
+        )
+
+        print(
+            "Source:",
+            result["source"],
+        )
+
+        print("\nTop association rules:")
+
+        for rule in result["top_rules"]:
+
+            print(
+                f"  Rule {rule['rule_number']}: "
+                f"{rule['antecedents']} -> "
+                f"{rule['consequents']} | "
+                f"Support={rule['support']} | "
+                f"Confidence={rule['confidence']} | "
+                f"Lift={rule['lift']}"
+            )
+
+        print(
+            "\nSTEP - ASSOCIATION ANALYSIS "
+            "ADAPTER TEST PASSED"
+        )
+
+    else:
+
+        print(
+            "\nSTEP - ASSOCIATION ANALYSIS "
+            "ADAPTER TEST FAILED"
+        )
+
+        print(
+            "Error:",
+            result.get("error"),
+        )
+
+
+if __name__ == "__main__":
+    main()

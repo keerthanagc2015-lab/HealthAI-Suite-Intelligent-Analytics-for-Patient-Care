@@ -1,24 +1,110 @@
+# ============================================================
+# HealthAI Intelligent Platform - .gitignore
+# ============================================================
+
+# -------------------------
 # Python
+# -------------------------
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
+
 .venv/
 venv/
+env/
+ENV/
 
-# Environment secrets
+# -------------------------
+# Environment / Secrets
+# -------------------------
 .env
 .env.*
 !.env.example
 
-# Model artifacts and datasets
+# -------------------------
+# Machine Learning Artifacts
+# -------------------------
 models/
 mlruns/
 mlflow.db
+
+# -------------------------
+# Datasets / Generated Data
+# -------------------------
 data/raw/
 data/processed/
 
+# -------------------------
 # Jupyter
+# -------------------------
 .ipynb_checkpoints/
 
-# Test and cache files
+# -------------------------
+# Testing / Coverage / Cache
+# -------------------------
 .pytest_cache/
+.coverage
+htmlcov/
 test-results.xml
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+logs/
+
+# -------------------------
+# OS Files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# IDE / Editor
+# -------------------------
+.vscode/
+.idea/
+
+# -------------------------
+# Temporary Files
+# -------------------------
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# -------------------------
+# Project Backup Files
+# -------------------------
+*.backup
+*.before_*
+*_backup.py
+*backup*.py
+
+# Old / duplicate Streamlit folder
+src/19_streamlit copy/
+
+# -------------------------
+# Docker Local Backups
+# -------------------------
+healthai-app-working.tar
+.dockerignore-working
+deployment/docker-compose-working.yml
+
+# -------------------------
+# Local Diagnostic / Repair Files
+# -------------------------
+diagnose_healthai_xray.py
+final_unicode_repair.py
+fix_mojibake.py
+fix_translation_unicode.py
+test_cnn_compatibility.py
+normal_test_sample.png
+model_inventory.txt
+model_loading_references.txt
+# Historical / backup source copies
+*.backup*
+*.old.py
+*_before_*.py

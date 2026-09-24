@@ -1,0 +1,19 @@
+﻿.git
+.gitignore
+.venv
+venv
+__pycache__
+*.pyc
+.ipynb_checkpoints
+.env
+.env.*
+mlruns
+# Exclude training optimizer states from Docker image
+**/optimizer.pt
+
+**/optimizer.pt
+
+# Keep large model files outside the Docker image
+models/
+
+data/
