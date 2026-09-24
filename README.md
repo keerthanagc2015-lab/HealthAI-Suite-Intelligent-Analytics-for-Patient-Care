@@ -912,3 +912,14 @@ Docker
 ```
 
 The project emphasizes modular architecture, data provenance, third-party attribution, evidence-grounded medical information, API contracts and explicit safety boundaries.
+
+# Limitations
+
+- **Portfolio / Educational Use:** HealthAI is developed as an educational and portfolio demonstration and is not a clinically validated healthcare system.
+- **No Clinical Decision-Making:** Model predictions and generated responses must not be used for medical diagnosis, treatment decisions, or emergency decision-making.
+- **Synthetic Data:** Several workflows use synthetic or simulated healthcare datasets. Their performance may not represent real-world clinical populations or hospital environments.
+- **Model Limitations:** Machine-learning, deep-learning, NLP, and RAG outputs can contain errors and should be interpreted within the limitations of the underlying models and datasets.
+- **Medical RAG Scope:** The medical-information assistant is grounded in the curated sources incorporated into the RAG knowledge base and may not cover every medical condition or clinical scenario.
+- **Translation Limitations:** Machine translation is provided for information support and may not preserve all medical terminology or context accurately.
+- **External Resources:** Third-party datasets, pretrained models, and medical-information sources remain subject to their respective provider terms and licenses.
+- **Data Availability:** Large datasets and trained model artifacts are excluded from the Git repository and must be obtained or restored separately for full reproduction.
