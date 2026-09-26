@@ -7,15 +7,18 @@ symptom, and clinical health indicators.
 
 ## Dataset
 
-Indian Healthcare Patient Records
+**Indian Healthcare Patient Records**
 
 Source:
+
 Kaggle - https://www.kaggle.com/datasets/arunsworkspace/indian-healthcare-patient-records
 
 Dataset size:
+
 100,000 records
 
 License:
+
 MIT
 
 ## Selected Features
@@ -37,7 +40,7 @@ MIT
 
 ## Target
 
-Primary_Diagnosis
+`Primary_Diagnosis`
 
 ## Preprocessing
 
@@ -60,7 +63,7 @@ Primary_Diagnosis
 ## Evaluation Metrics
 
 Because the dataset is imbalanced and multiclass,
-the primary evaluation metric was Macro F1.
+the primary evaluation metric was **Macro F1**.
 
 Additional metrics:
 
@@ -69,21 +72,23 @@ Additional metrics:
 - Macro Recall
 - Weighted F1
 
-## Advanced Models
+## Advanced Model Evaluation
 
-Random Forest + SMOTE + Feature Engineering:
+### Random Forest + SMOTE + Feature Engineering
 
 - Accuracy: 43.46%
+- Macro Precision: 0.2283
+- Macro Recall: 0.2278
 - Macro F1: 0.2255
 - Weighted F1: 0.4181
 
-XGBoost + SMOTE + Feature Engineering:
+### XGBoost + SMOTE + Feature Engineering
 
 - Accuracy: 45.43%
 - Macro F1: 0.2099
 - Weighted F1: 0.4101
 
-Earlier XGBoost + SMOTE:
+### Earlier XGBoost + SMOTE Configuration
 
 - Accuracy: 42.81%
 - Macro F1: 0.2315
@@ -91,19 +96,51 @@ Earlier XGBoost + SMOTE:
 
 ## Model Selection
 
-XGBoost + SMOTE was selected as the classification
-candidate based on its stronger Macro F1 among the
-evaluated configurations.
+Multiple model configurations were evaluated for the
+multiclass primary-diagnosis task.
 
-The model still has limitations, particularly for
-minority disease classes. Therefore, it should be
-considered a research/educational prediction system
-rather than a clinically validated diagnostic system.
+Because the target is imbalanced and multiclass, Macro F1
+was treated as the primary evaluation metric rather than
+relying on accuracy alone.
+
+### Initial Candidate Selection
+
+During the earlier advanced model-comparison stage, the
+XGBoost + SMOTE configuration achieved a Macro F1 of
+**0.2315**, which was the strongest recorded Macro F1 among
+the evaluated configurations at that stage.
+
+Therefore, **XGBoost + SMOTE was selected as the initial
+classification candidate**.
+
+### Final Integrated Model
+
+During the subsequent integration stage, the finalized
+primary-diagnosis workflow was implemented using:
+
+**Random Forest + SMOTE + Feature Engineering**
+
+The saved application model and its metadata identify
+Random Forest as the model used by the final
+primary-diagnosis workflow.
+
+Final integrated-model evaluation:
+
+- Accuracy: 43.46%
+- Macro Precision: 0.2283
+- Macro Recall: 0.2278
+- Macro F1: 0.2255
+- Weighted F1: 0.4181
+
+This documentation distinguishes the earlier candidate
+selection experiment from the later integrated model so that
+the two development stages are not presented as the same
+model-selection event.
 
 ## Explainability
 
-Random Forest feature importance and XGBoost SHAP
-analysis were performed.
+Random Forest feature importance and XGBoost SHAP analysis
+were performed.
 
 The most influential features included:
 
@@ -113,8 +150,8 @@ The most influential features included:
 - BMI
 - Age
 
-These results indicate which features the models relied
-on most heavily. They do not establish causal relationships.
+These results indicate which features the models relied on
+most heavily. They do not establish causal relationships.
 
 ## Limitations
 
@@ -123,13 +160,20 @@ on most heavily. They do not establish causal relationships.
   predictive performance.
 - The dataset is not a clinically validated diagnostic
   dataset.
+- The recorded model performance may not generalize to
+  real-world clinical populations.
 - The models require further validation before any
   real-world clinical use.
+- The primary-diagnosis module should be considered a
+  research and educational prediction system rather than
+  a clinically validated diagnostic system.
 
 ## Data Attribution
 
-Indian Healthcare Patient Records,
-Kaggle, Arun's Workspace.
+**Indian Healthcare Patient Records**
+
+Kaggle - Arun's Workspace
 
 Dataset URL:
+
 https://www.kaggle.com/datasets/arunsworkspace/indian-healthcare-patient-records
