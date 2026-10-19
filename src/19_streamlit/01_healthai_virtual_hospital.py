@@ -9,6 +9,7 @@ HealthAI Virtual Hospital - Final Streamlit Application
 
 from datetime import date, timedelta
 import json
+import os
 import requests
 import streamlit as st
 
@@ -214,7 +215,12 @@ DOCTOR_SVG = """
 
 
 
-API = os.getenv("HEALTHAI_API_URL", "http://127.0.0.1:8000")
+
+API = os.getenv(
+    "HEALTHAI_API_URL",
+    "http://127.0.0.1:8000"
+)
+
 st.markdown(HEALTHAI_CSS, unsafe_allow_html=True)
 
 
