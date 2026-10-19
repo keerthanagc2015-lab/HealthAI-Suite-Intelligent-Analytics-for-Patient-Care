@@ -1,0 +1,27 @@
+{
+    "AppName":  "healthai-api",
+    "EnvironmentId":  "/subscriptions/461fb2d4-9e40-4bec-9036-7cf7c27e37c7/resourceGroups/ganesh-container-app-test/providers/Microsoft.App/managedEnvironments/healthai-container-env",
+    "IdentityType":  "SystemAssigned",
+    "Ingress":  {
+                    "external":  true,
+                    "targetPort":  8000,
+                    "transport":  "Http"
+                },
+    "RegistryNames":  [
+                          "ganeshhealthaireg.azurecr.io"
+                      ],
+    "Container":  {
+                      "name":  "healthai-api",
+                      "image":  "ganeshhealthaireg.azurecr.io/healthai-app:latest",
+                      "resources":  {
+                                        "cpu":  2.0,
+                                        "ephemeralStorage":  "8Gi",
+                                        "memory":  "4Gi"
+                                    }
+                  },
+    "Scale":  {
+                  "maxReplicas":  1,
+                  "minReplicas":  0,
+                  "rules":  null
+              }
+}

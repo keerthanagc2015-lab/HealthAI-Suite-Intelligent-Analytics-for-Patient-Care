@@ -1,29 +1,16 @@
+﻿import os
 """
 HealthAI Virtual Hospital - Final Streamlit Application
 
-Final UI integration:
-- Home
-- Doctor Portal
-  - Chest X-ray
-  - Length of Stay
-  - Primary Diagnosis
-  - Patient Sentiment
-  - Medical NER
-- Patient Portal
-  - Health Risk
-  - Medical Translation
-  - HealthAI Assistant
-  - Appointments
-  - Hospital Services
 
-All model inference is performed through FastAPI.
+
+
 """
 
 from datetime import date, timedelta
 import json
 import requests
 import streamlit as st
-
 
 def find_first_value(data, keys):
     """Find a useful value in nested API responses without changing the API."""
@@ -225,14 +212,9 @@ DOCTOR_SVG = """
 
 
 
-st.set_page_config(
-    page_title="HealthAI Virtual Hospital",
-    page_icon="🏥",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
 
-API = "http://127.0.0.1:8000"
+
+API = os.getenv("HEALTHAI_API_URL", "http://127.0.0.1:8000")
 st.markdown(HEALTHAI_CSS, unsafe_allow_html=True)
 
 
@@ -1828,7 +1810,7 @@ else:
                                 f"{source.get('topic')}"
                             )
 
-            if st.button("✕ " + pt("Close previous answer")):
+            if st.button("âœ• " + pt("Close previous answer")):
                 st.session_state.selected_previous_question = None
                 st.rerun()
 
@@ -2151,5 +2133,8 @@ st.markdown(
     f"<div class=\"disclaimer\"><b>{_disclaimer_title}</b><br>{_disclaimer_text}</div>",
     unsafe_allow_html=True,
 )
+
+
+
 
 

@@ -1,0 +1,66 @@
+﻿{
+  "Configuration": {
+    "activeRevisionsMode": "Single",
+    "dapr": null,
+    "ingress": {
+      "additionalPortMappings": null,
+      "allowInsecure": false,
+      "clientCertificateMode": null,
+      "corsPolicy": null,
+      "customDomains": null,
+      "exposedPort": 0,
+      "external": true,
+      "fqdn": "healthai-api.lemonpebble-73f0ba71.eastus.azurecontainerapps.io",
+      "ipSecurityRestrictions": null,
+      "stickySessions": null,
+      "targetPort": 8000,
+      "traffic": [
+        {
+          "latestRevision": true,
+          "weight": 100
+        }
+      ],
+      "transport": "Http"
+    },
+    "maxInactiveRevisions": null,
+    "registries": [
+      {
+        "identity": "system",
+        "passwordSecretRef": "",
+        "server": "ganeshhealthaireg.azurecr.io",
+        "username": ""
+      }
+    ],
+    "secrets": null,
+    "service": null
+  },
+  "Identity": {
+    "principalId": "5d5a4b51-ca3e-4e32-b733-03e250d3500f",
+    "tenantId": "5bc4bbe8-c5c8-4678-a172-2b74fe21062d",
+    "type": "SystemAssigned"
+  },
+  "Location": "East US",
+  "Template": {
+    "containers": [
+      {
+        "image": "ganeshhealthaireg.azurecr.io/healthai-app:latest",
+        "name": "healthai-api",
+        "resources": {
+          "cpu": 2.0,
+          "ephemeralStorage": "8Gi",
+          "memory": "4Gi"
+        }
+      }
+    ],
+    "initContainers": null,
+    "revisionSuffix": "",
+    "scale": {
+      "maxReplicas": 1,
+      "minReplicas": 0,
+      "rules": null
+    },
+    "serviceBinds": null,
+    "terminationGracePeriodSeconds": null,
+    "volumes": null
+  }
+}

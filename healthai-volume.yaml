@@ -1,0 +1,6 @@
+﻿properties:
+  template:
+    volumes:
+      - name: healthai-models-volume
+        storageType: AzureFile
+        storageName: healthai-files

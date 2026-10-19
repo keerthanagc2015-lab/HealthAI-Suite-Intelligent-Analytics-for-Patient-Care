@@ -1,0 +1,40 @@
+﻿properties:
+  configuration:
+    activeRevisionsMode: Single
+    registries:
+      - server: ganeshhealthaireg.azurecr.io
+        identity: system
+    ingress:
+      external: true
+      allowInsecure: false
+      targetPort: 8000
+      transport: Http
+  template:
+    containers:
+      - name: healthai-api
+        image: ganeshhealthaireg.azurecr.io/healthai-app:latest
+        resources:
+          cpu: 2.0
+          memory: 4Gi
+        command:
+          - sh
+          - -c
+        args:
+          - >-
+            if [ ! -e /app/models ]; then
+              ln -s /mnt/healthai/models /app/models;
+            fi;
+            exec uvicorn 01_fastapi_app:app
+            --app-dir /app/src/18_api
+            --host 0.0.0.0
+            --port 8000
+        volumeMounts:
+          - volumeName: healthai-models-volume
+            mountPath: /mnt/healthai
+    scale:
+      minReplicas: 0
+      maxReplicas: 1
+    volumes:
+      - name: healthai-models-volume
+        storageType: AzureFile
+        storageName: healthai-files
