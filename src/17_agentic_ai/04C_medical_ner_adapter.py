@@ -40,13 +40,28 @@ MODEL_DIR = (
     / "biobert_ner"
 )
 
-LABEL_MAP_PATH = (
+AZURE_LABEL_MAP_PATH = (
+    Path("/mnt/healthai")
+    / "data"
+    / "processed"
+    / "deep_learning"
+    / "nlp"
+    / "ner_label_map.json"
+)
+
+LOCAL_LABEL_MAP_PATH = (
     PROJECT_ROOT
     / "data"
     / "processed"
     / "deep_learning"
     / "nlp"
     / "ner_label_map.json"
+)
+
+LABEL_MAP_PATH = (
+    AZURE_LABEL_MAP_PATH
+    if AZURE_LABEL_MAP_PATH.exists()
+    else LOCAL_LABEL_MAP_PATH
 )
 
 OUTPUT_DIR = (
