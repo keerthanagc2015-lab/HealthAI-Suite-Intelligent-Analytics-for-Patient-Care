@@ -1,0 +1,312 @@
+src\16_deep_learning\23_nlp_dataset_inspection.py :32 : print("\nLoading E3-JSI synthetic medical NER dataset...")
+src\16_deep_learning\24_nlp_preprocessing.py :401 : later using the BioBERT/ClinicalBERT tokenizer.
+src\16_deep_learning\25_nlp_transformer_preparation.py :43 : # BioBERT tokenizer
+src\16_deep_learning\25_nlp_transformer_preparation.py :44 : BIOBERT_TOKENIZER = (
+src\16_deep_learning\25_nlp_transformer_preparation.py :45 : "dmis-lab/biobert-v1.1"
+src\16_deep_learning\25_nlp_transformer_preparation.py :124 : # LOAD BIOBERT TOKENIZER
+src\16_deep_learning\25_nlp_transformer_preparation.py :128 : print("LOADING BIOBERT TOKENIZER")
+src\16_deep_learning\25_nlp_transformer_preparation.py :133 : BIOBERT_TOKENIZER
+src\16_deep_learning\25_nlp_transformer_preparation.py :137 : BIOBERT_TOKENIZER
+src\16_deep_learning\25_nlp_transformer_preparation.py :141 : "? BioBERT tokenizer loaded."
+src\16_deep_learning\25_nlp_transformer_preparation.py :515 : "biobert_token_label_preview.csv"
+src\16_deep_learning\25_nlp_transformer_preparation.py :666 : "tokenizer": BIOBERT_TOKENIZER,
+src\16_deep_learning\25_nlp_transformer_preparation.py :879 : BIOBERT_TOKENIZER
+src\16_deep_learning\26_nlp_long_document_chunking.py :36 : TOKENIZER_NAME = "dmis-lab/biobert-v1.1"
+src\16_deep_learning\26_nlp_long_document_chunking.py :113 : print("LOADING BIOBERT TOKENIZER")
+src\16_deep_learning\27_biobert_ner_training.py :19 : # HEALTHAI - BIOBERT MEDICAL NER TRAINING
+src\16_deep_learning\27_biobert_ner_training.py :23 : print("HEALTHAI - BIOBERT MEDICAL NER TRAINING")
+src\16_deep_learning\27_biobert_ner_training.py :43 : "biobert_model"
+src\16_deep_learning\27_biobert_ner_training.py :48 : "biobert_training_results"
+src\16_deep_learning\27_biobert_ner_training.py :51 : MODEL_NAME = "dmis-lab/biobert-v1.1"
+src\16_deep_learning\27_biobert_ner_training.py :333 : # LOAD BIOBERT TOKENIZER
+src\16_deep_learning\27_biobert_ner_training.py :337 : print("LOADING BIOBERT")
+src\16_deep_learning\27_biobert_ner_training.py :352 : "? BioBERT tokenizer loaded."
+src\16_deep_learning\27_biobert_ner_training.py :357 : # LOAD BIOBERT MODEL
+src\16_deep_learning\27_biobert_ner_training.py :360 : print("\nLoading BioBERT model...")
+src\16_deep_learning\27_biobert_ner_training.py :377 : "? BioBERT model loaded."
+src\16_deep_learning\27_biobert_ner_training.py :597 : # START BIOBERT TRAINING
+src\16_deep_learning\27_biobert_ner_training.py :601 : print("STARTING BIOBERT TRAINING")
+src\16_deep_learning\27_biobert_ner_training.py :617 : print("SAVING TRAINED BIOBERT")
+src\16_deep_learning\27_biobert_ner_training.py :631 : "? Trained BioBERT saved."
+src\16_deep_learning\27_biobert_ner_training.py :708 : "model": "BioBERT",
+src\16_deep_learning\27_biobert_ner_training.py :770 : "biobert_training_metrics.json"
+src\16_deep_learning\27_biobert_ner_training.py :811 : "biobert_training_log.csv"
+src\16_deep_learning\27_biobert_ner_training.py :830 : print("BIOBERT NER TRAINING COMPLETED")
+src\16_deep_learning\28_biobert_ner_evaluation.py :2 : HealthAI - BioBERT NER Evaluation
+src\16_deep_learning\28_biobert_ner_evaluation.py :5 : Evaluate the locally stored BioBERT NER model on the same
+src\16_deep_learning\28_biobert_ner_evaluation.py :9 : dmis-lab/biobert-v1.1
+src\16_deep_learning\28_biobert_ner_evaluation.py :22 : BioBERT was trained using Google Colab + T4 GPU.
+src\16_deep_learning\28_biobert_ner_evaluation.py :57 : / "biobert_ner"
+src\16_deep_learning\28_biobert_ner_evaluation.py :120 : print("HEALTHAI - BIOBERT NER EVALUATION")
+src\16_deep_learning\28_biobert_ner_evaluation.py :151 : f"BioBERT model not found:\n{MODEL_PATH}"
+src\16_deep_learning\28_biobert_ner_evaluation.py :164 : print("? BioBERT model found.")
+src\16_deep_learning\28_biobert_ner_evaluation.py :398 : # 12. LOAD BIOBERT TOKENIZER
+src\16_deep_learning\28_biobert_ner_evaluation.py :403 : print("LOADING BIOBERT TOKENIZER")
+src\16_deep_learning\28_biobert_ner_evaluation.py :420 : # 13. LOAD BIOBERT MODEL
+src\16_deep_learning\28_biobert_ner_evaluation.py :425 : print("LOADING BIOBERT MODEL")
+src\16_deep_learning\28_biobert_ner_evaluation.py :448 : print("? BioBERT model loaded.")
+src\16_deep_learning\28_biobert_ner_evaluation.py :467 : print("RUNNING BIOBERT EVALUATION")
+src\16_deep_learning\28_biobert_ner_evaluation.py :619 : print("BIOBERT NER TEST RESULTS")
+src\16_deep_learning\28_biobert_ner_evaluation.py :717 : / "biobert_ner_entity_report.csv"
+src\16_deep_learning\28_biobert_ner_evaluation.py :731 : "model": "dmis-lab/biobert-v1.1",
+src\16_deep_learning\28_biobert_ner_evaluation.py :748 : / "biobert_ner_test_metrics.json"
+src\16_deep_learning\28_biobert_ner_evaluation.py :815 : / "biobert_vs_colab_evaluation_comparison.csv"
+src\16_deep_learning\28_biobert_ner_evaluation.py :830 : print("BIOBERT NER EVALUATION COMPLETED")
+src\16_deep_learning\30_ner_model_comparison.py :2 : HealthAI - BioBERT vs ClinicalBERT NER Model Comparison
+src\16_deep_learning\30_ner_model_comparison.py :5 : Compare the two fine-tuned medical NER models using their
+src\16_deep_learning\30_ner_model_comparison.py :9 : 1. BioBERT
+src\16_deep_learning\30_ner_model_comparison.py :35 : BIOBERT_METRICS = (
+src\16_deep_learning\30_ner_model_comparison.py :39 : / "biobert_ner"
+src\16_deep_learning\30_ner_model_comparison.py :41 : / "biobert_ner_test_metrics.json"
+src\16_deep_learning\30_ner_model_comparison.py :53 : BIOBERT_REPORT = (
+src\16_deep_learning\30_ner_model_comparison.py :57 : / "biobert_ner"
+src\16_deep_learning\30_ner_model_comparison.py :59 : / "biobert_ner_entity_report.csv"
+src\16_deep_learning\30_ner_model_comparison.py :89 : print("HEALTHAI - BIOBERT VS CLINICALBERT NER COMPARISON")
+src\16_deep_learning\30_ner_model_comparison.py :107 : BIOBERT_METRICS,
+src\16_deep_learning\30_ner_model_comparison.py :109 : BIOBERT_REPORT,
+src\16_deep_learning\30_ner_model_comparison.py :134 : BIOBERT_METRICS,
+src\16_deep_learning\30_ner_model_comparison.py :139 : biobert = json.load(f)
+src\16_deep_learning\30_ner_model_comparison.py :151 : print("? BioBERT metrics loaded.")
+src\16_deep_learning\30_ner_model_comparison.py :162 : "model": "BioBERT",
+src\16_deep_learning\30_ner_model_comparison.py :163 : "model_name": "dmis-lab/biobert-v1.1",
+src\16_deep_learning\30_ner_model_comparison.py :164 : "token_accuracy": biobert["token_accuracy"],
+src\16_deep_learning\30_ner_model_comparison.py :165 : "entity_precision": biobert["entity_precision"],
+src\16_deep_learning\30_ner_model_comparison.py :166 : "entity_recall": biobert["entity_recall"],
+src\16_deep_learning\30_ner_model_comparison.py :167 : "entity_f1": biobert["entity_f1"],
+src\16_deep_learning\30_ner_model_comparison.py :168 : "test_documents": biobert["test_documents"],
+src\16_deep_learning\30_ner_model_comparison.py :169 : "test_chunks": biobert["test_chunks"],
+src\16_deep_learning\30_ner_model_comparison.py :222 : biobert_f1 = biobert["entity_f1"]
+src\16_deep_learning\30_ner_model_comparison.py :225 : if biobert_f1 > clinicalbert_f1:
+src\16_deep_learning\30_ner_model_comparison.py :227 : selected_model = "BioBERT"
+src\16_deep_learning\30_ner_model_comparison.py :230 : "dmis-lab/biobert-v1.1"
+src\16_deep_learning\30_ner_model_comparison.py :234 : "BioBERT achieved the highest held-out "
+src\16_deep_learning\30_ner_model_comparison.py :238 : elif clinicalbert_f1 > biobert_f1:
+src\16_deep_learning\30_ner_model_comparison.py :256 : "BioBERT / ClinicalBERT"
+src\16_deep_learning\30_ner_model_comparison.py :270 : biobert["token_accuracy"]
+src\16_deep_learning\30_ner_model_comparison.py :275 : biobert["entity_precision"]
+src\16_deep_learning\30_ner_model_comparison.py :280 : biobert["entity_recall"]
+src\16_deep_learning\30_ner_model_comparison.py :285 : biobert["entity_f1"]
+src\16_deep_learning\30_ner_model_comparison.py :310 : f"BioBERT Entity F1: "
+src\16_deep_learning\30_ner_model_comparison.py :311 : f"{biobert_f1 * 100:.2f}%"
+src\16_deep_learning\30_ner_model_comparison.py :347 : "biobert": {
+src\16_deep_learning\30_ner_model_comparison.py :348 : "model_name": "dmis-lab/biobert-v1.1",
+src\16_deep_learning\30_ner_model_comparison.py :351 : biobert["token_accuracy"]
+src\16_deep_learning\30_ner_model_comparison.py :355 : biobert["entity_precision"]
+src\16_deep_learning\30_ner_model_comparison.py :359 : biobert["entity_recall"]
+src\16_deep_learning\30_ner_model_comparison.py :363 : biobert["entity_f1"]
+src\16_deep_learning\30_ner_model_comparison.py :367 : biobert["test_documents"]
+src\16_deep_learning\30_ner_model_comparison.py :371 : biobert["test_chunks"]
+src\16_deep_learning\30_ner_model_comparison.py :405 : "differences_biobert_minus_clinicalbert": {
+src\16_deep_learning\30_ner_model_comparison.py :432 : / "biobert_vs_clinicalbert_comparison.csv"
+src\16_deep_learning\30_ner_model_comparison.py :481 : biobert_report = pd.read_csv(
+src\16_deep_learning\30_ner_model_comparison.py :482 : BIOBERT_REPORT
+src\16_deep_learning\30_ner_model_comparison.py :490 : f"? BioBERT report: "
+src\16_deep_learning\30_ner_model_comparison.py :491 : f"{len(biobert_report)} rows"
+src\16_deep_learning\30_ner_model_comparison.py :510 : biobert_entities = biobert_report[
+src\16_deep_learning\30_ner_model_comparison.py :511 : ~biobert_report["label"].isin(
+src\16_deep_learning\30_ner_model_comparison.py :524 : # 15. PREPARE BIOBERT PER-ENTITY DATA
+src\16_deep_learning\30_ner_model_comparison.py :527 : per_class = biobert_entities[
+src\16_deep_learning\30_ner_model_comparison.py :537 : "precision": "biobert_precision",
+src\16_deep_learning\30_ner_model_comparison.py :538 : "recall": "biobert_recall",
+src\16_deep_learning\30_ner_model_comparison.py :539 : "f1": "biobert_f1",
+src\16_deep_learning\30_ner_model_comparison.py :540 : "support": "biobert_support",
+src\16_deep_learning\30_ner_model_comparison.py :583 : per_class["biobert_f1"].fillna(0)
+src\16_deep_learning\30_ner_model_comparison.py :594 : "BioBERT",
+src\16_deep_learning\30_ner_model_comparison.py :627 : "biobert_precision",
+src\16_deep_learning\30_ner_model_comparison.py :628 : "biobert_recall",
+src\16_deep_learning\30_ner_model_comparison.py :629 : "biobert_f1",
+src\16_deep_learning\30_ner_model_comparison.py :673 : # 23. TOP BIOBERT ENTITY CLASSES
+src\16_deep_learning\30_ner_model_comparison.py :678 : print("TOP BIOBERT ENTITY CLASSES")
+src\16_deep_learning\30_ner_model_comparison.py :681 : top_biobert = (
+src\16_deep_learning\30_ner_model_comparison.py :682 : biobert_entities
+src\16_deep_learning\30_ner_model_comparison.py :690 : for _, row in top_biobert.iterrows():
+src\16_deep_learning\30_ner_model_comparison.py :728 : biobert_wins = int(
+src\16_deep_learning\30_ner_model_comparison.py :729 : (per_class["winner"] == "BioBERT").sum()
+src\16_deep_learning\30_ner_model_comparison.py :747 : f"BioBERT wins:       {biobert_wins}"
+src\16_deep_learning\30_ner_model_comparison.py :770 : if selected_model == "BioBERT":
+src\16_deep_learning\30_ner_model_comparison.py :772 : print("?? SELECTED MODEL: BioBERT")
+src\16_deep_learning\30_ner_model_comparison.py :785 : f"BioBERT Entity F1: "
+src\16_deep_learning\30_ner_model_comparison.py :786 : f"{biobert_f1 * 100:.2f}%"
+src\17_agentic_ai\01_agent_tool_registry.py :20 : 7. Medical NER
+src\17_agentic_ai\01_agent_tool_registry.py :249 : # 7. BIOBERT - MEDICAL NER
+src\17_agentic_ai\01_agent_tool_registry.py :255 : "model_type": "BioBERT",
+src\17_agentic_ai\01_agent_tool_registry.py :259 : "from medical text using the selected BioBERT NER model."
+src\17_agentic_ai\01_agent_tool_registry.py :279 : "selected_model": "dmis-lab/biobert-v1.1"
+src\17_agentic_ai\01_agent_tool_registry_backup.py :20 : 7. Medical NER
+src\17_agentic_ai\01_agent_tool_registry_backup.py :249 : # 7. BIOBERT - MEDICAL NER
+src\17_agentic_ai\01_agent_tool_registry_backup.py :255 : "model_type": "BioBERT",
+src\17_agentic_ai\01_agent_tool_registry_backup.py :259 : "from medical text using the selected BioBERT NER model."
+src\17_agentic_ai\01_agent_tool_registry_backup.py :279 : "selected_model": "dmis-lab/biobert-v1.1"
+src\17_agentic_ai\02A_router_interface_diagnostic.py :158 : "Medical NER",
+src\17_agentic_ai\02_agent_router.py :940 : "Medical NER",
+src\17_agentic_ai\02_agent_router.py :957 : "Medical NER 2",
+src\17_agentic_ai\02_agent_router_backup.py :921 : "Medical NER",
+src\17_agentic_ai\02_agent_router_backup.py :938 : "Medical NER 2",
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :3 : HEALTHAI - BIOBERT MEDICAL NER RAW INFERENCE DIAGNOSTIC
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :10 : 17.4A - Raw BioBERT NER Diagnostic
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :13 : Verify what the trained BioBERT model is actually predicting at token level
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :53 : / "biobert_ner"
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :74 : / "biobert_raw_inference_diagnostic.json"
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :183 : """Load tokenizer and trained BioBERT model."""
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :190 : print("LOADING BIOBERT")
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :196 : f"BioBERT model directory not found:\n"
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :245 : "BioBERT loaded."
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :475 : "biobert_raw_inference_diagnostic"
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :478 : "dmis-lab/biobert-v1.1"
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :521 : "HEALTHAI - BIOBERT RAW NER DIAGNOSTIC"
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :624 : "BioBERT is producing entity predictions."
+src\17_agentic_ai\04A_medical_ner_diagnostic.py :639 : "BioBERT predicted O for every token."
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :3 : HEALTHAI - BIOBERT CHECKPOINT VALIDATION
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :10 : 17.4B - Validate local BioBERT checkpoint against the actual
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :14 : Verify whether the local BioBERT checkpoint is producing the expected
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :15 : medical NER predictions on the same tokenized data used during training/
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :64 : / "biobert_ner"
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :95 : / "biobert_checkpoint_validation.json"
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :216 : "LOADING LOCAL BIOBERT CHECKPOINT"
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :223 : f"BioBERT model directory not found:\n"
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :402 : Run BioBERT directly on the stored tokenized chunk.
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :694 : "HEALTHAI - BIOBERT CHECKPOINT VALIDATION"
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :884 : "The local BioBERT checkpoint IS producing "
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :890 : "producing medical NER predictions."
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :911 : "The local BioBERT checkpoint produced "
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :937 : "biobert_checkpoint_validation"
+src\17_agentic_ai\04B_biobert_checkpoint_validation.py :940 : "dmis-lab/biobert-v1.1"
+src\17_agentic_ai\04C_medical_ner_adapter.py :3 : Medical NER Adapter - BioBERT
+src\17_agentic_ai\04C_medical_ner_adapter.py :6 : Production-style adapter around the locally trained BioBERT
+src\17_agentic_ai\04C_medical_ner_adapter.py :7 : medical NER model.
+src\17_agentic_ai\04C_medical_ner_adapter.py :16 : dmis-lab/biobert-v1.1
+src\17_agentic_ai\04C_medical_ner_adapter.py :40 : / "biobert_ner"
+src\17_agentic_ai\04C_medical_ner_adapter.py :150 : Load the locally fine-tuned BioBERT model and tokenizer.
+src\17_agentic_ai\04C_medical_ner_adapter.py :155 : f"BioBERT model directory not found:\n{MODEL_DIR}"
+src\17_agentic_ai\04C_medical_ner_adapter.py :399 : # CORE MEDICAL NER PREDICTION
+src\17_agentic_ai\04C_medical_ner_adapter.py :521 : "model": "dmis-lab/biobert-v1.1",
+src\17_agentic_ai\04C_medical_ner_adapter.py :547 : This function loads BioBERT lazily and delegates actual
+src\17_agentic_ai\04C_medical_ner_adapter.py :559 : "Medical NER input must be text."
+src\17_agentic_ai\04C_medical_ner_adapter.py :573 : "Medical NER requires "
+src\17_agentic_ai\04C_medical_ner_adapter.py :603 : "Medical NER execution failed."
+src\17_agentic_ai\04C_medical_ner_adapter.py :652 : print("HEALTHAI MEDICAL NER ADAPTER")
+src\17_agentic_ai\04C_medical_ner_adapter.py :686 : # Load BioBERT
+src\17_agentic_ai\04C_medical_ner_adapter.py :690 : "\nLoading BioBERT..."
+src\17_agentic_ai\04C_medical_ner_adapter.py :698 : "BioBERT loaded successfully."
+src\17_agentic_ai\04C_medical_ner_adapter.py :713 : "\nRunning medical NER test cases..."
+src\17_agentic_ai\04C_medical_ner_adapter.py :778 : "dmis-lab/biobert-v1.1"
+src\17_agentic_ai\04C_medical_ner_adapter.py :810 : "STEP 17.4C MEDICAL NER ADAPTER"
+src\17_agentic_ai\04D_medical_ner_raw_text_diagnostic.py :3 : BioBERT Raw-Text Inference Diagnostic
+src\17_agentic_ai\04D_medical_ner_raw_text_diagnostic.py :6 : Compare BioBERT predictions when:
+src\17_agentic_ai\04D_medical_ner_raw_text_diagnostic.py :29 : MODEL_DIR = PROJECT_ROOT / "models" / "nlp" / "biobert_ner"
+src\17_agentic_ai\04D_medical_ner_raw_text_diagnostic.py :108 : print("LOADING BIOBERT")
+src\17_agentic_ai\04D_medical_ner_raw_text_diagnostic.py :176 : # BioBERT does not require token_type_ids for this task,
+src\17_agentic_ai\04D_medical_ner_raw_text_diagnostic.py :417 : print("HEALTHAI - BIOBERT RAW TEXT DIAGNOSTIC")
+src\17_agentic_ai\04D_medical_ner_raw_text_diagnostic.py :705 : "model": "dmis-lab/biobert-v1.1",
+src\17_agentic_ai\04_medical_ner_adapter.py :3 : HEALTHAI - REAL BIOBERT MEDICAL NER ADAPTER
+src\17_agentic_ai\04_medical_ner_adapter.py :10 : 17.4 - Real BioBERT Medical NER Adapter
+src\17_agentic_ai\04_medical_ner_adapter.py :13 : Connect the trained BioBERT medical NER model to the Agentic AI layer.
+src\17_agentic_ai\04_medical_ner_adapter.py :22 : Medical NER Adapter
+src\17_agentic_ai\04_medical_ner_adapter.py :24 : Trained BioBERT
+src\17_agentic_ai\04_medical_ner_adapter.py :31 : dmis-lab/biobert-v1.1
+src\17_agentic_ai\04_medical_ner_adapter.py :34 : models/nlp/biobert_ner/
+src\17_agentic_ai\04_medical_ner_adapter.py :64 : / "biobert_ner"
+src\17_agentic_ai\04_medical_ner_adapter.py :95 : # BioBERT uses special tokens such as [CLS] and [SEP].
+src\17_agentic_ai\04_medical_ner_adapter.py :396 : # LOAD BIOBERT
+src\17_agentic_ai\04_medical_ner_adapter.py :401 : Load the trained BioBERT token classification model.
+src\17_agentic_ai\04_medical_ner_adapter.py :408 : "LOADING TRAINED BIOBERT NER MODEL"
+src\17_agentic_ai\04_medical_ner_adapter.py :418 : f"\nBioBERT model directory not found:\n"
+src\17_agentic_ai\04_medical_ner_adapter.py :455 : print("\nLoading BioBERT model...")
+src\17_agentic_ai\04_medical_ner_adapter.py :475 : "BioBERT model loaded."
+src\17_agentic_ai\04_medical_ner_adapter.py :560 : Split text into overlapping BioBERT-compatible token chunks.
+src\17_agentic_ai\04_medical_ner_adapter.py :651 : Run BioBERT inference on one token chunk.
+src\17_agentic_ai\04_medical_ner_adapter.py :1009 : # MAIN MEDICAL NER FUNCTION
+src\17_agentic_ai\04_medical_ner_adapter.py :1052 : "BioBERT model has not been loaded."
+src\17_agentic_ai\04_medical_ner_adapter.py :1122 : "model": "dmis-lab/biobert-v1.1",
+src\17_agentic_ai\04_medical_ner_adapter.py :1223 : "real_biobert_medical_ner_adapter"
+src\17_agentic_ai\04_medical_ner_adapter.py :1226 : "dmis-lab/biobert-v1.1"
+src\17_agentic_ai\04_medical_ner_adapter.py :1272 : "HEALTHAI - REAL BIOBERT MEDICAL NER ADAPTER"
+src\17_agentic_ai\04_medical_ner_adapter.py :1284 : # Load BioBERT
+src\17_agentic_ai\09_agent_safety.py :214 : "of stay estimation, medical entity extraction, chest X-ray "
+src\17_agentic_ai\10_agent_explainability.py :22 : - Medical NER               : per-entity evaluation
+src\17_agentic_ai\10_agent_explainability.py :416 : # 7. MEDICAL NER
+src\17_agentic_ai\10_agent_explainability.py :419 : print("[7/9] Medical NER explainability")
+src\17_agentic_ai\10_agent_explainability.py :424 : / "biobert_ner",
+src\17_agentic_ai\10_agent_explainability.py :443 : "BioBERT vs ClinicalBERT comparison",
+src\17_agentic_ai\10_agent_explainability.py :451 : "BioBERT model is a portfolio NLP model and is not a clinically "
+src\17_agentic_ai\11_mlflow_model_tracking.py :499 : # 6. BIOBERT MEDICAL NER
+src\17_agentic_ai\11_mlflow_model_tracking.py :503 : "model_name": "BioBERT_Medical_NER",
+src\17_agentic_ai\11_mlflow_model_tracking.py :517 : "model_type": "BioBERT",
+src\17_agentic_ai\11_mlflow_model_tracking.py :518 : "base_model": "dmis-lab/biobert-v1.1",
+src\17_agentic_ai\11_mlflow_model_tracking.py :527 : / "biobert_ner",
+src\17_agentic_ai\11_mlflow_model_tracking.py :533 : # 7. CLINICALBERT MEDICAL NER
+src\17_agentic_ai\18_final_agentic_integration.py :195 : "name": "Medical NER",
+src\18_api\01_fastapi_app.py :10 : 4. Medical NER
+src\18_api\01_fastapi_app.py :977 : # MEDICAL NER
+src\18_api\01_fastapi_app.py :980 : @app.post("/predict/ner")
+src\18_api\01_fastapi_app_backup.py :10 : 4. Medical NER
+src\18_api\01_fastapi_app_backup.py :909 : # MEDICAL NER
+src\18_api\01_fastapi_app_backup.py :912 : @app.post("/predict/ner")
+src\18_api\01_fastapi_app_before_translation.py :10 : 4. Medical NER
+src\18_api\01_fastapi_app_before_translation.py :941 : # MEDICAL NER
+src\18_api\01_fastapi_app_before_translation.py :944 : @app.post("/predict/ner")
+src\18_api\02_test_fastapi.py :165 : # 6. MEDICAL NER
+src\18_api\02_test_fastapi.py :173 : "Medical NER",
+src\18_api\02_test_fastapi.py :175 : "/predict/ner",
+src\19_streamlit\01_healthai_dashboard.py :51 : with x: st.markdown('<div class="card"><h2>????? Doctor Portal</h2><p>?? Chest X-ray · ?? Length of Stay · ?? Primary Diagnosis · ?? Patient Sentiment · ?? Medical NER</p></div>',unsafe_allow_html=True)
+src\19_streamlit\01_healthai_dashboard.py :59 : page=st.sidebar.radio('Doctor Services',['Dashboard','?? Chest X-ray','?? Length of Stay','?? Primary Diagnosis','?? Patient Sentiment','?? Medical NER'])
+src\19_streamlit\01_healthai_dashboard.py :83 : elif page=='?? Medical NER':
+src\19_streamlit\01_healthai_dashboard.py :84 : st.title('?? Medical NER'); t=st.text_area('Clinical note','Patient has critical limb ischaemia with stump pain. Started metformin 500mg bd and apixaban.',height=180)
+src\19_streamlit\01_healthai_dashboard.py :85 : if st.button('Extract Medical Entities',type='primary'): show(*api('/predict/ner',{'text':t}))
+src\19_streamlit\01_healthai_virtual_hospital.before_byte_repair.py :11 : - Medical NER
+src\19_streamlit\01_healthai_virtual_hospital.before_byte_repair.py :472 : • **Medical NLP:** BioBERT / ClinicalBERT for medical entity extraction.
+src\19_streamlit\01_healthai_virtual_hospital.before_byte_repair.py :505 : "?? Medical NER",
+src\19_streamlit\01_healthai_virtual_hospital.before_byte_repair.py :933 : elif page == "?? Medical NER":
+src\19_streamlit\01_healthai_virtual_hospital.before_byte_repair.py :935 : st.title("?? Medical NER")
+src\19_streamlit\01_healthai_virtual_hospital.before_byte_repair.py :937 : "BioBERT extracts medical entities from clinical text."
+src\19_streamlit\01_healthai_virtual_hospital.before_byte_repair.py :955 : "/predict/ner",
+src\19_streamlit\01_healthai_virtual_hospital.before_byte_repair.py :966 : f"Medical NER completed — {len(entities)} entities found."
+src\19_streamlit\01_healthai_virtual_hospital.old.py :11 : - Medical NER
+src\19_streamlit\01_healthai_virtual_hospital.old.py :472 : • **Medical NLP:** BioBERT / ClinicalBERT for medical entity extraction.
+src\19_streamlit\01_healthai_virtual_hospital.old.py :505 : "?? Medical NER",
+src\19_streamlit\01_healthai_virtual_hospital.old.py :933 : elif page == "?? Medical NER":
+src\19_streamlit\01_healthai_virtual_hospital.old.py :935 : st.title("?? Medical NER")
+src\19_streamlit\01_healthai_virtual_hospital.old.py :937 : "BioBERT extracts medical entities from clinical text."
+src\19_streamlit\01_healthai_virtual_hospital.old.py :955 : "/predict/ner",
+src\19_streamlit\01_healthai_virtual_hospital.old.py :966 : f"Medical NER completed — {len(entities)} entities found."
+src\19_streamlit\01_healthai_virtual_hospital.py :460 : • **Medical NLP:** BioBERT / ClinicalBERT for medical entity extraction.
+src\19_streamlit\01_healthai_virtual_hospital.py :919 : elif page == "?? Medical NER":
+src\19_streamlit\01_healthai_virtual_hospital.py :921 : st.title("?? Medical NER")
+src\19_streamlit\01_healthai_virtual_hospital.py :923 : "BioBERT extracts medical entities from clinical text."
+src\19_streamlit\01_healthai_virtual_hospital.py :941 : "/predict/ner",
+src\19_streamlit\01_healthai_virtual_hospital.py :952 : f"Medical NER completed — {len(entities)} entities found."
+src\19_streamlit copy\01_healthai_dashboard.py :51 : with x: st.markdown('<div class="card"><h2>????? Doctor Portal</h2><p>?? Chest X-ray · ?? Length of Stay · ?? Primary Diagnosis · ?? Patient Sentiment · ?? Medical NER</p></div>',unsafe_allow_html=True)
+src\19_streamlit copy\01_healthai_dashboard.py :59 : page=st.sidebar.radio('Doctor Services',['Dashboard','?? Chest X-ray','?? Length of Stay','?? Primary Diagnosis','?? Patient Sentiment','?? Medical NER'])
+src\19_streamlit copy\01_healthai_dashboard.py :83 : elif page=='?? Medical NER':
+src\19_streamlit copy\01_healthai_dashboard.py :84 : st.title('?? Medical NER'); t=st.text_area('Clinical note','Patient has critical limb ischaemia with stump pain. Started metformin 500mg bd and apixaban.',height=180)
+src\19_streamlit copy\01_healthai_dashboard.py :85 : if st.button('Extract Medical Entities',type='primary'): show(*api('/predict/ner',{'text':t}))
+src\19_streamlit copy\01_healthai_virtual_hospital.before_byte_repair.py :11 : - Medical NER
+src\19_streamlit copy\01_healthai_virtual_hospital.before_byte_repair.py :472 : • **Medical NLP:** BioBERT / ClinicalBERT for medical entity extraction.
+src\19_streamlit copy\01_healthai_virtual_hospital.before_byte_repair.py :505 : "?? Medical NER",
+src\19_streamlit copy\01_healthai_virtual_hospital.before_byte_repair.py :933 : elif page == "?? Medical NER":
+src\19_streamlit copy\01_healthai_virtual_hospital.before_byte_repair.py :935 : st.title("?? Medical NER")
+src\19_streamlit copy\01_healthai_virtual_hospital.before_byte_repair.py :937 : "BioBERT extracts medical entities from clinical text."
+src\19_streamlit copy\01_healthai_virtual_hospital.before_byte_repair.py :955 : "/predict/ner",
+src\19_streamlit copy\01_healthai_virtual_hospital.before_byte_repair.py :966 : f"Medical NER completed — {len(entities)} entities found."
+src\19_streamlit copy\01_healthai_virtual_hospital.old.py :11 : - Medical NER
+src\19_streamlit copy\01_healthai_virtual_hospital.old.py :472 : • **Medical NLP:** BioBERT / ClinicalBERT for medical entity extraction.
+src\19_streamlit copy\01_healthai_virtual_hospital.old.py :505 : "?? Medical NER",
+src\19_streamlit copy\01_healthai_virtual_hospital.old.py :933 : elif page == "?? Medical NER":
+src\19_streamlit copy\01_healthai_virtual_hospital.old.py :935 : st.title("?? Medical NER")
+src\19_streamlit copy\01_healthai_virtual_hospital.old.py :937 : "BioBERT extracts medical entities from clinical text."
+src\19_streamlit copy\01_healthai_virtual_hospital.old.py :955 : "/predict/ner",
+src\19_streamlit copy\01_healthai_virtual_hospital.old.py :966 : f"Medical NER completed — {len(entities)} entities found."
+src\19_streamlit copy\01_healthai_virtual_hospital.py :11 : - Medical NER
+src\19_streamlit copy\01_healthai_virtual_hospital.py :472 : • **Medical NLP:** BioBERT / ClinicalBERT for medical entity extraction.
+src\19_streamlit copy\01_healthai_virtual_hospital.py :505 : "?? Medical NER",
+src\19_streamlit copy\01_healthai_virtual_hospital.py :932 : elif page == "?? Medical NER":
+src\19_streamlit copy\01_healthai_virtual_hospital.py :934 : st.title("?? Medical NER")
+src\19_streamlit copy\01_healthai_virtual_hospital.py :936 : "BioBERT extracts medical entities from clinical text."
+src\19_streamlit copy\01_healthai_virtual_hospital.py :954 : "/predict/ner",
+src\19_streamlit copy\01_healthai_virtual_hospital.py :965 : f"Medical NER completed — {len(entities)} entities found."
+ui-build\src\19_streamlit\01_healthai_virtual_hospital.py :454 : • **Medical NLP:** BioBERT / ClinicalBERT for medical entity extraction.
+ui-build\src\19_streamlit\01_healthai_virtual_hospital.py :913 : elif page == "?? Medical NER":
+ui-build\src\19_streamlit\01_healthai_virtual_hospital.py :915 : st.title("?? Medical NER")
+ui-build\src\19_streamlit\01_healthai_virtual_hospital.py :917 : "BioBERT extracts medical entities from clinical text."
+ui-build\src\19_streamlit\01_healthai_virtual_hospital.py :935 : "/predict/ner",
+ui-build\src\19_streamlit\01_healthai_virtual_hospital.py :946 : f"Medical NER completed — {len(entities)} entities found."

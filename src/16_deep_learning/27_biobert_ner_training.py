@@ -402,67 +402,92 @@ data_collator = (
 # METRICS
 # ============================================================
 
-def compute_metrics(
-    evaluation_prediction
-):
 
-    predictions = (
-        evaluation_prediction.predictions
-    )
-
-    labels = (
-        evaluation_prediction.label_ids
-    )
-
-
-    # Convert logits to predicted label IDs
+def compute_metrics(evaluation_prediction):
     predictions = np.argmax(
-        predictions,
-        axis=-1
+        evaluation_prediction.predictions, axis=-1
     )
+    labels = evaluation_prediction.label_ids
 
+    # Convert IDs into BIO tags, ignoring special tokens/padding.
+    true_sequences = []
+    pred_sequences = []
 
-    correct = 0
-    total = 0
+    for prediction_row, label_row in zip(predictions, labels):
+        true_tags = []
+        pred_tags = []
 
-
-    for prediction_row, label_row in zip(
-        predictions,
-        labels
-    ):
-
-        for prediction, label in zip(
-            prediction_row,
-            label_row
-        ):
-
-            # Ignore [CLS], [SEP] and padding
+        for prediction, label in zip(prediction_row, label_row):
             if label == -100:
-
                 continue
 
+            true_tags.append(id2label[int(label)])
+            pred_tags.append(id2label[int(prediction)])
 
-            total += 1
+        true_sequences.append(true_tags)
+        pred_sequences.append(pred_tags)
 
+    # Entity-level evaluation using strict BIO span matching.
+    tp = fp = fn = 0
 
-            if prediction == label:
+    for true_tags, pred_tags in zip(true_sequences, pred_sequences):
+        true_entities = extract_entities(true_tags)
+        pred_entities = extract_entities(pred_tags)
 
-                correct += 1
+        tp += len(true_entities & pred_entities)
+        fp += len(pred_entities - true_entities)
+        fn += len(true_entities - pred_entities)
 
-
-    token_accuracy = (
-        correct / total
-        if total > 0
-        else 0
+    precision = tp / (tp + fp) if tp + fp else 0.0
+    recall = tp / (tp + fn) if tp + fn else 0.0
+    f1 = (
+        2 * precision * recall / (precision + recall)
+        if precision + recall else 0.0
     )
 
+    valid = labels != -100
+    token_accuracy = (
+        float((predictions[valid] == labels[valid]).mean())
+        if valid.any() else 0.0
+    )
 
     return {
-
-        "token_accuracy":
-            token_accuracy
-
+        "token_accuracy": token_accuracy,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
     }
+
+
+def extract_entities(tags):
+    """Return entity spans as (entity_type, start, end) tuples."""
+    entities = set()
+    current_type = None
+    start = None
+
+    for i, tag in enumerate(tags + ["O"]):
+        if tag == "O" or "-" not in tag:
+            next_prefix, next_type = "O", None
+        else:
+            next_prefix, next_type = tag.split("-", 1)
+
+        if current_type is not None and (
+            next_prefix != "I" or next_type != current_type
+        ):
+            entities.add((current_type, start, i))
+            current_type = None
+            start = None
+
+        if next_prefix == "B":
+            current_type = next_type
+            start = i
+        elif next_prefix == "I" and current_type is None:
+            # Handle an invalid I-tag as the beginning of a span.
+            current_type = next_type
+            start = i
+
+    return entities
+
 
 
 # ============================================================
@@ -506,8 +531,7 @@ training_args = TrainingArguments(
     # Keep best model
     load_best_model_at_end=True,
 
-    metric_for_best_model="token_accuracy",
-
+    metric_for_best_model="f1",
     greater_is_better=True,
 
     # Keep only two checkpoints
@@ -713,14 +737,28 @@ metrics = {
         2e-5,
 
     "validation_token_accuracy":
-        validation_results.get(
-            "eval_token_accuracy"
-        ),
+        validation_results.get("eval_token_accuracy"),
+
+    "validation_entity_precision":
+        validation_results.get("eval_precision"),
+
+    "validation_entity_recall":
+        validation_results.get("eval_recall"),
+
+    "validation_entity_f1":
+        validation_results.get("eval_f1"),
 
     "test_token_accuracy":
-        test_results.get(
-            "test_token_accuracy"
-        )
+        test_results.get("test_token_accuracy"),
+
+    "test_entity_precision":
+        test_results.get("test_precision"),
+
+    "test_entity_recall":
+        test_results.get("test_recall"),
+
+    "test_entity_f1":
+        test_results.get("test_f1")
 
 }
 

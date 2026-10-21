@@ -484,7 +484,6 @@ elif portal == "👨‍⚕️ Doctor Portal":
             "🏨 Length of Stay",
             "🧬 Primary Diagnosis",
             "💬 Patient Sentiment",
-            "🧪 Medical NER",
         ],
     )
 
